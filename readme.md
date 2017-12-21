@@ -64,7 +64,7 @@ JSX is a syntax layer over the API we just used. Thanks to JSX we can write our
 * JSX looks like HTML but is not HTML
 * `class` is a reserved name in JavaScript, that's why we use `className`. There's a whole bunch of `JSX` specific syntax for attributes like this. Find them all on the [React enlightment](https://www.reactenlightenment.com/react-jsx/5.7.html) page and on the React
 
-```javascript
+```jsx
 const root = document.querySelector('#root');
 const element = (
     <div className="container">
