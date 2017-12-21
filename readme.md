@@ -2,11 +2,11 @@
 
 *Currently I'm still following the course, and with taking notes and all it's not going too fast! Keep an eye open for updates*
 
-The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, not how React itself does these things. Luckily there are some great resources available, one of which is the ‘Beginners guide to React’ course from Kent C. Dodd on Egghead.io. 
+The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodd](https://twitter.com/kentcdodds).
 
-Besides the egghead.io course, I’ve watched [one of Kent’s talks](https://youtu.be/pugPxYH96TU) in which he covers pretty much the same stuff, at times a bit more in-depth. 
+Besides the egghead.io course, I’ve watched [one of Kent’s talks](https://youtu.be/pugPxYH96TU) in which he covers pretty much the same stuff, at times a bit more in-depth.
 
-During the following course I also found the [React documentation](https://reactjs.org/docs/) to be really helpful, as [React Enlightenment](https://www.reactenlightenment.com/) which is a great, free book which leaves no stone unturned. 
+During the course I also found the [React documentation](https://reactjs.org/docs/) to be really helpful, as [React Enlightenment](https://www.reactenlightenment.com/) which is available for free and greatly compliments Kent's course.
 
 * [The beginners guide to React](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
 * [The introduction to React you've been missing](https://youtu.be/pugPxYH96TU)
