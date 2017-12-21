@@ -9,7 +9,7 @@ The base of React are its [Top-level API's](https://reactjs.org/docs/react-api.h
 
 ## `createElement`
 
-`React.createElement` is sort of an equivelant to `document.createElement` in that it creates `nodes`. Instead of `DOM` nodes, it creates `React` nodes. This is what the API looks like:
+`React.createElement` is sort of an equivalent to `document.createElement` in that it creates `nodes`. Instead of `DOM` nodes, it creates `React` nodes. This is what the API looks like:
 
 ```javascript
 React.createElement(
@@ -49,7 +49,7 @@ const el = React.createElement('div', {
 ReactDOM.render(el, rootEl);
 ```
 
-We nested `childEl` in `rootEl`, and if we would want to we could nest another element in `childEl`, and so on. We can create an entire DOM tree this way, but that would become very annoying quicly. The deeper you nest your elements this way, the harder it is to keep track of what is happening. That's where the JSX Syntax comes in.
+We nested `childEl` in `rootEl`, and if we would want to we could nest another element in `childEl`, and so on. We can create an entire DOM tree this way, but that would become very annoying quickly. The deeper you nest your elements this way, the harder it is to keep track of what is happening. That's where the JSX Syntax comes in.
 
 * [React API docs](https://reactjs.org/docs/react-api.html)
 * [React API createElement docs](https://reactjs.org/docs/react-api.html#createelement)
@@ -104,13 +104,13 @@ ReactDOM.render(element, root);
 
 Here we define both `className` and children in the `props` object and `spread` it inside the `JSX` div.
 
-Properties will be read in order. When you define a property twice, the last one will be used. This can be usefull for overriding a property that came from an object:
+Properties will be read in order. When you define a property twice, the last one will be used. This can be useful for overriding a property that came from an object:
 
 ```javascript
 const element = <div {...objProps} className='winsBecauseLast' />;
 ```
 
-In this case, `winsBecauseLast` will be set as classname as it's last. The same goes for the `children` property. If you'd change the element to either `<div {...objProps}>This will be displayed</div>` or `<div {...objProps} children="This will be displayed"/>`, the `children` property from the `props` object would be overriden.
+In this case, `winsBecauseLast` will be set as class name as it's last. The same goes for the `children` property. If you'd change the element to either `<div {...objProps}>This will be displayed</div>` or `<div {...objProps} children="This will be displayed"/>`, the `children` property from the `props` object would be overridden.
 
 * [React Enlightment - JSX ](https://www.reactenlightenment.com/react-jsx/5.7.html)
 * [React Docs - Dom elements](https://reactjs.org/docs/dom-elements.html)
@@ -118,7 +118,7 @@ In this case, `winsBecauseLast` will be set as classname as it's last. The same 
 
 ### Creating a React component
 
-In React, components are used to prevent you from repeating yourself or seperating your code into different functions. 
+In React, components are used to prevent you from repeating yourself or separating your code into different functions. 
 Here we've got a JSX example where we've got two elements inside of a main element. (tip, to return a multi-line and indented variable, wrap it in parentheses)
 
 ```javascript
@@ -130,7 +130,7 @@ const el = (
 );
 ```
 
-If we make it a little bit more programatic, we can make a variable with JSX and call that in our `el`.
+If we make it a little bit more programmatic, we can make a variable with JSX and call that in our `el`.
 
 ```javascript
 const helloWorld = <div>Hello World</div>;
@@ -153,3 +153,17 @@ const el = (
     </div>
 );
 ```
+
+## Resources
+
+### Documentation
+
+* [React Enlightenment](https://www.reactenlightenment.com/) - An amazing in-depth resource for enlightening you in React.
+* [React docs](https://reactjs.org/docs/hello-world.html) - Official React documentation
+* [React docs - Top level api](https://reactjs.org/docs/react-api.html) - Explenation of the Top Level API
+
+
+### Tools
+
+* [Babel Repl - onine transpiling](https://babeljs.io/repl/)
+* [Unpkg.com](https://unpkg.com/)
