@@ -84,7 +84,9 @@ An example of a JSX component. Note that we don't have to escape our characters 
 
 ### Javascript in JSX
 
-To use JavaScript within JSX, you need to make use of curly braces. Within curly braces you can make use of [JavaScript Expressions](https://developer.mozilla.org/nl/docs/Web/JavaScript/Guide/Expressions_and_Operators) and other JS that returns something that JSX can render. . This means making use of `arrow` functions and the logical `&&` operator. Complicated logic is best left out of the JSX itself and moved to an external function. [Read more about conditional rendering in JSX](https://reactjs.org/docs/conditional-rendering.html).
+To use JavaScript within JSX, you need to make use of curly braces. *Within curly braces you can make use of [JavaScript Expressions](https://developer.mozilla.org/nl/docs/Web/JavaScript/Guide/Expressions_and_Operators) and other JS that returns something that JSX can render. . This means making use of `arrow` functions and the logical `&&` operator. Complicated logic is best left out of the JSX itself and moved to an external function. [Read more about conditional rendering in JSX](https://reactjs.org/docs/conditional-rendering.html).
+
+** *Is this actually true? What exactly can you use within those curly braces? Nothing that uses Curly Braces itself, right?*
 
 You can use curly braces in the content, but also as an attribute value:
 
