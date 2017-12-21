@@ -1,5 +1,7 @@
 # My notes on - 'Beginners guide to React'
 
+*Currently I'm still following the course, and with taking notes and all it's not going too fast! Keep an eye open for updates*
+
 The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, not how React itself does these things. Luckily there are some great resources available, one of which is the ‘Beginners guide to React’ course from Kent C. Dodd on Egghead.io. 
 
 Besides the egghead.io course, I’ve watched [one of Kent’s talks](https://youtu.be/pugPxYH96TU) in which he covers pretty much the same stuff, at times a bit more in-depth. 
@@ -169,7 +171,6 @@ const el = (
 * [React Enlightenment](https://www.reactenlightenment.com/) - An amazing in-depth resource for enlightening you in React.
 * [React docs](https://reactjs.org/docs/hello-world.html) - Official React documentation
 * [React docs - Top level api](https://reactjs.org/docs/react-api.html) - Explenation of the Top Level API
-
 
 ### Tools
 
