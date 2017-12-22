@@ -1,6 +1,6 @@
 # My notes on - 'Beginners guide to React'
 
-*Currently I'm still following the course, and with taking notes and all it's not going too fast! Keep an eye open for updates*
+⚠️ *Currently I'm still following the course, and with taking notes and all it's not going too fast! Keep an eye open for updates*
 
 The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodd](https://twitter.com/kentcdodds).
 
