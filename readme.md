@@ -2,6 +2,25 @@
 
 ⚠️ *Currently I'm still following the course, and with taking notes and all it's not going too fast! Keep an eye open for updates*
 
+## Table of contents
+
+- [My notes on - 'Beginners guide to React'](#my-notes-on---beginners-guide-to-react)
+    - [Table of contents](#table-of-contents)
+    - [Introduction](#introduction)
+    - [Base](#base)
+        - [`createElement`](#createelement)
+        - [JSX](#jsx)
+        - [Javascript in JSX](#javascript-in-jsx)
+        - [Creating a React component](#creating-a-react-component)
+            - [Summary](#summary)
+        - [Prop validation](#prop-validation)
+    - [Resources](#resources)
+        - [Documentation](#documentation)
+        - [Tools](#tools)
+        - [Some other notes](#some-other-notes)
+            - [Components](#components)
+
+
 ## Introduction
 
 The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodd](https://twitter.com/kentcdodds).
@@ -281,11 +300,9 @@ Note that when we switch out our development version of `React` and `ReactDOM` t
 * [Babel Repl - onine transpiling](https://babeljs.io/repl/)
 * [Unpkg.com](https://unpkg.com/)
 
+### Some other notes
 
-
-## Some other notes
-
-Components:
+#### Components
 
 Creating a stateless component: Create a function that returns a JSX element, and optionally takes in `props`.
 `convarst MyComponent = React.createClass` and `class MyComponent extends React.Component` are the same. The first one is `es5` syntax, the latter is `es6`. I'm completely commited to the `es6` syntax but if you want to explore the differences, [Todd Moto did a write-up on `createClass` vs `extends React.Component`](https://toddmotto.com/react-create-class-versus-component/) that is worth exploring.
