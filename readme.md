@@ -11,9 +11,12 @@
         - [`createElement`](#createelement)
         - [JSX](#jsx)
         - [Javascript in JSX](#javascript-in-jsx)
+            - [Resource list - JSX](#resource-list---jsx)
         - [Creating a React component](#creating-a-react-component)
             - [Summary](#summary)
         - [Prop validation](#prop-validation)
+        - [Conditionally rendering JSX](#conditionally-rendering-jsx)
+            - [Resources - PropTypes](#resources---proptypes)
     - [Resources](#resources)
         - [Documentation](#documentation)
         - [Tools](#tools)
@@ -131,11 +134,11 @@ const props = {
     className: 'container',
     children: 'What\'s going on?'
 }
-const element = <div {...objProps}/>;
+const element = <div {...props}/>;
 ReactDOM.render(element, root);
 ```
 
-Here we define both `className` and children in the `props` object and `spread` it inside the `JSX` div.
+Here we define both `className` and `children` in the `props` object and `spread` it inside the `JSX` div.
 
 Properties will be read in order. When you define a property twice, the last one will be used. This can be useful for overriding a property that came from an object:
 
@@ -143,9 +146,38 @@ Properties will be read in order. When you define a property twice, the last one
 const element = <div {...objProps} className='winsBecauseLast' />;
 ```
 
-In this case, `winsBecauseLast` will be set as class name as it's last. The same goes for the `children` property. If you'd change the element to either `<div {...objProps}>This will be displayed</div>` or `<div {...objProps} children="This will be displayed"/>`, the `children` property from the `props` object would be overridden.
+In this case `winsBecauseLast` will be set as class name as it's last.
 
-* [React Enlightment - JSX ](https://www.reactenlightenment.com/react-jsx/5.7.html)
+When using `children` as an attribute you should keep in mind that anything between an opening and closing `JSX` tag will override this. When you transpile `JSX` to JS you'll see that is because child content gets passed as the third argument in the `React.createElement` API.
+
+```javascript
+// Original
+const root = document.querySelector('#root');
+const props = {
+    className: 'container',
+    children: 'What\'s going on?' // Here we declare a child element
+}
+// But here we also declare a child element: The string inside the div. Who wins?
+const element = <div {...props}>Test</div>;
+ReactDOM.render(element, root);
+
+// Transpiled
+var root = document.querySelector('#root');
+var props = {
+    className: 'container',
+    children: 'What\'s going on?'
+};
+var element = React.createElement(
+    'div',
+    props,
+    'Test' // This is what'll get rendered as it's the last argument that gets passed.
+);
+ReactDOM.render(element, root);
+```
+
+#### Resource list - JSX
+
+* [React Enlightment - JSX](https://www.reactenlightenment.com/react-jsx/5.7.html)
 * [React Docs - Dom elements](https://reactjs.org/docs/dom-elements.html)
 * [React Docs, conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
 
@@ -237,11 +269,11 @@ The `children` property will pass anything you add between an opening and closin
 * [React docs - Components and props](https://reactjs.org/docs/components-and-props.html)
 * [React enlightenment - Basic React Components](https://www.reactenlightenment.com/basic-react-components.html)
 
-* *Is children always available?*
+*Is children always available?*
 
 ### Prop validation
 
-In the following example, we create a `Greetings` component which will return a first name and a last name, IF they're filled in: 
+In the following example, we create a `Greetings` component which will return a first name and a last name, IF they're filled in:
 
 ```javascript
 const rootEl = document.querySelector('#root');
@@ -283,9 +315,24 @@ class Greeting extends React.Component {
 ReactDOM.render(<Greeting lastName={false} />, rootEl);
 ```
 
-For all intents and purposes, the last two examples would render the exact same thing, the difference being that we've got access to some React lifecycle goodness which we'll explore more further on. 
+For all intents and purposes, the last two examples would render the exact same thing, the difference being that we've got access to some React lifecycle goodness which we'll explore more further on.
 
 Note that when we switch out our development version of `React` and `ReactDOM` to production versions, the errors will be gone. This is because `propType` validation does take up resources and you don't want any errorr showing in your live application.
+
+### Conditionally rendering JSX
+
+```javascript
+const rootEl = document.querySelector('#root');
+const Greeting = props => (
+	<div>{Hello {props.firstName} {props.lastName}!</div>
+)
+ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
+```
+
+#### Resources - PropTypes
+
+- [React Docs - typechecking-with-proptypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+- [PropTypes NPM package](https://www.npmjs.com/package/prop-types)
 
 ## Resources
 
