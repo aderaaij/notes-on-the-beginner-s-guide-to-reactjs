@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
 </head>
 <body>
@@ -15,16 +16,19 @@
     </div>
     <script type="text/babel">
     const rootEl = document.querySelector('#root');
-    
-    const helloWorld = (value) => <div>{value}</div>;
-    const el = (
-        <div className="container">
-            {helloWorld('Hello there')}
-            {helloWorld('Goodbye')}
-        </div>
-    );
-
-    ReactDOM.render(el, rootEl);
+    class Greeting extends React.Component {
+        static propTypes = {
+            firstName: PropTypes.string.isRequired,
+            lastName: PropTypes.string
+        }
+        render() {
+            const { firstName, lastName } = this.props;
+            return(
+                <div>Hello {firstName} {lastName}!</div>
+            )
+        }
+    }
+    ReactDOM.render(<Greeting lastName={false} />, rootEl);
     </script>
 </body>
 </html>
