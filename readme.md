@@ -213,7 +213,10 @@ The `children` property will pass anything you add between an opening and closin
 * To create a reusable component you need to make a function that starts with a capital letter
 * This function takes in an object as argument, which you can use in whatever the function returns
 * You can use the React elements your function returns as you would use a `div`, `span` or anything else you'd use in JSX
-* You can create a component by creating a Javascript function that returns JSX, you can also extend the default React components giving extra options. 
+* You can create a component by creating a Javascript function that returns JSX, you can also extend the default React components giving extra options.
+
+* [React docs - Components and props](https://reactjs.org/docs/components-and-props.html)
+* [React enlightenment - Basic React Components](https://www.reactenlightenment.com/basic-react-components.html)
 
 * *Is children always available?*
 
