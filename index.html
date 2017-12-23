@@ -43,20 +43,20 @@
     <script type="text/babel">
     const rootEl = document.querySelector('#root');
     const Box = ({style, className, ...rest}) => (
-    <div
-        className={`box ${className}`}
-        style={{padding: 20, ...style}}
-        {...rest}
-    >
-    </div>
-);
-const App = () => (
-    <div>
-        <Box className="box--small" style={{backgroundColor: 'green'}}>Small Box</Box>
-        <Box className="box--medium">Small Box</Box>
-        <Box className="box--large">Small Box</Box>
-    </div>
-);
+        <div
+            className={`box ${className}`}
+            style={{padding: 20, ...style}}
+            {...rest}
+        >
+        </div>
+    );
+    const App = () => (
+        <div>
+            <Box className="box--small" style={{backgroundColor: 'green'}}>Small Box</Box>
+            <Box className="box--medium" style={{backgroundColor: 'tomato'}}>Small Box</Box>
+            <Box className="box--large" style={{backgroundColor: 'rebeccapurple'}}>Small Box</Box>
+        </div>
+    );
     ReactDOM.render(<App />, rootEl)
 
         // const state = { eventCount: 0, username: '' };

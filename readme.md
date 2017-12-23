@@ -173,8 +173,8 @@ var props = {
 var element = React.createElement(
     'div',
     props,
-    'Test' 
-    // The output will be `div` with the content 'test', as this last argument and 
+    'Test'
+    // The output will be `div` with the content 'test', as this last argument and
     // will override `props.children`
 );
 ReactDOM.render(element, root);
@@ -298,7 +298,7 @@ const el = (
 );
 ```
 
-And that's it. We've created a React component. Notice that the object we pass as props to our message function now looks like a HTML attribute and value. We can re-use the `Message` component as much as we want now. 
+And that's it. We've created a React component. Notice that the object we pass as props to our message function now looks like a HTML attribute and value. We can re-use the `Message` component as much as we want now.
 
 Notice that if the property is actually going to be the content of an element, you can use the `childrens` property:
 
@@ -541,7 +541,27 @@ This works. Although when you don't use a `className` property, our classes woul
 const Box = ({style, className = '', ...rest}) => (//...etc
 ```
 
+Now we're able to render a bunch of boxes with eah a different color and size:
 
+```javascript
+const Box = ({style, className = '', ...rest}) => (
+    <div
+        className={`box ${className}`}
+        style={{padding: 20, ...style}}
+        {...rest}
+    >
+    </div>
+);
+const App = () => (
+    <div>
+        <Box className="box--small" style={{backgroundColor: 'green'}}>Small Box</Box>
+        <Box className="box--medium" style={{backgroundColor: 'tomato'}}>Small Box</Box>
+        <Box className="box--large" style={{backgroundColor: 'rebeccapurple'}}>Small Box</Box>
+    </div>
+);
+```
+
+A concern in this case could be that the composer of these elements needs to know the CSS classnames. It would be better if the author could just define a size like `small`, `medium` or `large`. That's why we could replace className with a property here: 
 
 ## Resources
 
@@ -579,8 +599,7 @@ Creating a stateless component: Create a function that returns a JSX element, an
 `convarst MyComponent = React.createClass` and `class MyComponent extends React.Component` are the same. The first one is `es5` syntax, the latter is `es6`. I'm completely commited to the `es6` syntax but if you want to explore the differences, [Todd Moto did a write-up on `createClass` vs `extends React.Component`](https://toddmotto.com/react-create-class-versus-component/) that is worth exploring.
 [Stackoverflow - React.createClass vs extends Component](https://stackoverflow.com/questions/33526493/react-createclass-vs-extends-component)
 
-
 ### Key take aways
 
 - JSX is a readable syntax on top of the  `React.createElement` API. The more you realise that this is the case, the better you will understand what is happening.
-- The `...` spread operator is really f-in usefull. The content of a JSX element is in the `children` prop so you can always define a few default values in your component and spread other values, including `children`, into them. 
+- The `...` spread operator is really f-in usefull. The content of a JSX element is in the `children` prop so you can always define a few default values in your component and spread other values, including `children`, into them.
