@@ -88,7 +88,7 @@ We nested `childEl` in `rootEl`, and if we would want to we could nest another e
 
 ### JSX
 
-💡 Tip on working with JSX from Kent C. Dodds: When something in JSX doesn't seem to make sense, try and transpile it to JavaScript in your head, mostly it will make sense then. (Or use the [online Babel transpiler](https://babeljs.io/repl)).
+💡 *Tip on working with JSX from Kent C. Dodds: When something in JSX doesn't seem to make sense, try and transpile it to JavaScript in your head, mostly it will make sense then. (Or use the [online Babel transpiler](https://babeljs.io/repl)).*
 
 JSX is a syntax layer over the API we just used. Thanks to JSX we can write our `React.createElement` in a way that seems a bit like HTML. We can nest elements which can be normal HTML elements or react components and give those elements attributes much like we would in HTML.
 
@@ -363,4 +363,4 @@ ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
 
 Creating a stateless component: Create a function that returns a JSX element, and optionally takes in `props`.
 `convarst MyComponent = React.createClass` and `class MyComponent extends React.Component` are the same. The first one is `es5` syntax, the latter is `es6`. I'm completely commited to the `es6` syntax but if you want to explore the differences, [Todd Moto did a write-up on `createClass` vs `extends React.Component`](https://toddmotto.com/react-create-class-versus-component/) that is worth exploring.
-[Stackoverflow - React.createClass vs extends Component]https://stackoverflow.com/questions/33526493/react-createclass-vs-extends-component
+[Stackoverflow - React.createClass vs extends Component](https://stackoverflow.com/questions/33526493/react-createclass-vs-extends-component)
