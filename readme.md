@@ -18,12 +18,12 @@
         - [Conditionally rendering JSX](#conditionally-rendering-jsx)
             - [Resources - PropTypes](#resources---proptypes)
     - [Resources](#resources)
-    - [Video's](#videos)
+        - [Video's](#videos)
         - [Documentation](#documentation)
         - [Articles](#articles)
         - [Tools](#tools)
-        - [Some other notes](#some-other-notes)
-            - [Components](#components)
+    - [Some other notes](#some-other-notes)
+        - [Components](#components)
 
 ## Introduction
 
@@ -335,7 +335,7 @@ ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
 
 ## Resources
 
-## Video's
+### Video's
 
 - [The introduction to React you've been missing - Workshop by Kent C. Dodd](https://youtu.be/pugPxYH96TU)
 - [The beginners guide to React by Kent C. Dodd](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
@@ -357,9 +357,9 @@ ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
 - [Babel Repl - onine transpiling](https://babeljs.io/repl/)
 - [Unpkg.com](https://unpkg.com/)
 
-### Some other notes
+## Some other notes
 
-#### Components
+### Components
 
 Creating a stateless component: Create a function that returns a JSX element, and optionally takes in `props`.
 `convarst MyComponent = React.createClass` and `class MyComponent extends React.Component` are the same. The first one is `es5` syntax, the latter is `es6`. I'm completely commited to the `es6` syntax but if you want to explore the differences, [Todd Moto did a write-up on `createClass` vs `extends React.Component`](https://toddmotto.com/react-create-class-versus-component/) that is worth exploring.
