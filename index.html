@@ -16,18 +16,48 @@
     <div id="root">
 
     </div>
+    <style>
+    .box {
+        border: 1px solid #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .box--large {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .box--medium {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .box--small {
+        width: 60px;
+        height: 60px;
+    }
+    </style>
     <script type="text/babel">
     const rootEl = document.querySelector('#root');
-    function tick() {
-        const time = new Date().toLocaleTimeString();
-        const element = (<div>
-            <input value={time} />
-            <input value={time} />
-        </div>
-        )
-        ReactDOM.render(element, rootEl);
-    }
-    setInterval(tick, 1000);
+    const Box = ({style, className, ...rest}) => (
+    <div
+        className={`box ${className}`}
+        style={{padding: 20, ...style}}
+        {...rest}
+    >
+    </div>
+);
+const App = () => (
+    <div>
+        <Box className="box--small" style={{backgroundColor: 'green'}}>Small Box</Box>
+        <Box className="box--medium">Small Box</Box>
+        <Box className="box--large">Small Box</Box>
+    </div>
+);
+    ReactDOM.render(<App />, rootEl)
 
         // const state = { eventCount: 0, username: '' };
 
