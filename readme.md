@@ -10,13 +10,14 @@
     - [Base](#base)
         - [`createElement`](#createelement)
         - [JSX](#jsx)
-        - [Javascript in JSX](#javascript-in-jsx)
-            - [Resource list - JSX](#resource-list---jsx)
+            - [Javascript in JSX](#javascript-in-jsx)
+            - [Resources - JSX](#resources---jsx)
         - [Creating a React component](#creating-a-react-component)
             - [Summary](#summary)
+            - [Resources - Creating React components](#resources---creating-react-components)
         - [Prop validation](#prop-validation)
-        - [Conditionally rendering JSX](#conditionally-rendering-jsx)
             - [Resources - PropTypes](#resources---proptypes)
+        - [Conditionally rendering JSX](#conditionally-rendering-jsx)
     - [Resources](#resources)
         - [Video's](#videos)
         - [Documentation](#documentation)
@@ -41,6 +42,8 @@ The core of React is based on its [Top-level API's](https://reactjs.org/docs/rea
 
 ### `createElement`
 
+When you've worked with React beore you're probably familiair with JSX. JSX looks and behaves much like HTML, but in fact is a syntax over the `React.createElement` API.
+
 `React.createElement` is sort of an equivalent to `document.createElement` in that it creates `nodes`. Instead of `DOM` nodes, it creates `React` nodes. This is what the API looks like:
 
 ```javascript
@@ -53,7 +56,7 @@ React.createElement(
 
 `createElement` takes in three arguments:
 
-1. A type. This can be something like a `div` or a `span`, a React component type (a class or a function), or a React fragment type.
+1. A type. This can be something like a `div` or a `span`, a React component type (a class or a function), or a React [fragment type](https://reactjs.org/docs/fragments.html).
 1. A `props` object in which you can add attributes and children (single value or array)
 1. Children or an array of children
 
@@ -90,7 +93,7 @@ We nested `childEl` in `rootEl`, and if we would want to we could nest another e
 
 💡 *Tip on working with JSX from Kent C. Dodds: When something in JSX doesn't seem to make sense, try and transpile it to JavaScript in your head, mostly it will make sense then. (Or use the [online Babel transpiler](https://babeljs.io/repl)).*
 
-JSX is a syntax layer over the API we just used. Thanks to JSX we can write our `React.createElement` in a way that seems a bit like HTML. We can nest elements which can be normal HTML elements or react components and give those elements attributes much like we would in HTML.
+JSX is a syntax layer over the `React.createElement` API we just explored. Thanks to JSX we can write `React.createElement` in a way that resembles HTML. We can nest elements, which can be normal HTML elements or react components, and give those elements attributes much like we would in HTML.
 
 ```jsx
 const root = document.querySelector('#root');
@@ -102,11 +105,11 @@ const element = (
 ReactDOM.render(element, root);
 ```
 
-The JSX syntax is not part of the normal JavaScript standard, and needs [babel](https://babeljs.io/) for transpiling to normal JavaScript. Normally that is something that would be done while building the project / server side, but for demonstration purposes we import Babel directly into our project.
-
 What is noticable in the example above is that we don't use the `class` attribute, but we use `className` instead. That's because [`class` is a reserved keyword.](http://www.ecma-international.org/ecma-262/5.1/#sec-7.6.1.2). There are a bunch of JSX specific names for attributes. For a good list on what you can use or not, check out the [React Enlightenment chapter on Defining JSX Attributes](https://www.reactenlightenment.com/react-jsx/5.7.html)
 
-### Javascript in JSX
+The JSX syntax is not part of the JavaScript standard and needs [babel](https://babeljs.io/) for transpiling to standard JavaScript. Normally that is something that would be done while building the project / server side, but for demonstration purposes we import Babel directly into our project.
+
+#### Javascript in JSX
 
 To use JavaScript within JSX, you need to make use of curly braces. *Within curly braces you can make use of [JavaScript Expressions](https://developer.mozilla.org/nl/docs/Web/JavaScript/Guide/Expressions_and_Operators) and other JS that returns something that JSX can render. This means making use of `arrow` functions and the logical `&&` operator. Complicated logic is best left out of the JSX itself and moved to an external function. [Read more about conditional rendering in JSX](https://reactjs.org/docs/conditional-rendering.html).
 
@@ -171,7 +174,7 @@ var element = React.createElement(
 ReactDOM.render(element, root);
 ```
 
-#### Resource list - JSX
+#### Resources - JSX
 
 - [React Enlightment - JSX](https://www.reactenlightenment.com/react-jsx/5.7.html)
 - [React Docs - Dom elements](https://reactjs.org/docs/dom-elements.html)
@@ -262,6 +265,8 @@ The `children` property will pass anything you add between an opening and closin
 - You can use the React elements your function returns as you would use a `div`, `span` or anything else you'd use in JSX
 - You can create a component by creating a Javascript function that returns JSX, you can also extend the default React components giving extra options.
 
+#### Resources - Creating React components
+
 - [React docs - Components and props](https://reactjs.org/docs/components-and-props.html)
 - [React enlightenment - Basic React Components](https://www.reactenlightenment.com/basic-react-components.html)
 
@@ -292,7 +297,7 @@ ReactDOM.render(<Greeting/>, rootEl);
 
 Here we define what type of value our `props` should be and if they are required or not. `ReactDOM.render(<Greeting lastName={false} />, rootEl);` would log two errors. One because `firstName` is missing while it's required in the validation, and a second because we pass a `boolean` value type instead of a `string`.
 
-When we'd use an actual `React` class component, we would use the proptypes as `static` type inside the function call. 
+When we'd use an actual `React` class component, we would use the proptypes as `static` type inside the function call.
 
 ```javascript
 const rootEl = document.querySelector('#root');
@@ -311,9 +316,15 @@ class Greeting extends React.Component {
 ReactDOM.render(<Greeting lastName={false} />, rootEl);
 ```
 
-For all intents and purposes, the last two examples would render the exact same thing, the difference being that we've got access to some React lifecycle goodness which we'll explore more further on.
+For all intents and purposes, the last two examples would render the exact same thing, the difference being that in the latter we've got access to some React lifecycle goodness which we'll explore more further on.
 
 Note that when we switch out our development version of `React` and `ReactDOM` to production versions, the errors will be gone. This is because `propType` validation does take up resources and you don't want any errorr showing in your live application.
+
+#### Resources - PropTypes
+
+- [React Docs - typechecking-with-proptypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+- [Reactenlightenment.com - Validating component Props](https://www.reactenlightenment.com/react-props/7.6.html)
+- [PropTypes NPM package](https://www.npmjs.com/package/prop-types)
 
 ### Conditionally rendering JSX
 
@@ -327,11 +338,6 @@ const Greeting = ({ msg }) => (
 )
 ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
 ```
-
-#### Resources - PropTypes
-
-- [React Docs - typechecking-with-proptypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
-- [PropTypes NPM package](https://www.npmjs.com/package/prop-types)
 
 ## Resources
 
