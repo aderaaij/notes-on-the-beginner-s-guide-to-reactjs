@@ -17,49 +17,56 @@
 
     </div>
     <script type="text/babel">
+    const rootEl = document.querySelector('#root');
+    const Greeting = ({ msg }) => (
+        <div>{msg &&
+            <div>{msg}</div>
+        }</div>
+    )
+    ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
 
-        const state = { eventCount: 0, username: '' };
+        // const state = { eventCount: 0, username: '' };
 
-        const renderApp = () => {
-            ReactDOM.render(
-                <App />,
-                document.getElementById('root'),
-            );
-        };
+        // const renderApp = () => {
+        //     ReactDOM.render(
+        //         <App />,
+        //         document.getElementById('root'),
+        //     );
+        // };
 
-        const setState = (newState) => {
-            Object.assign(state, newState);
-            renderApp();
-        };
+        // const setState = (newState) => {
+        //     Object.assign(state, newState);
+        //     renderApp();
+        // };
 
-        const increment = () => {
-            setState({
-                eventCount: state.eventCount + 1,
-            });
-        };
+        // const increment = () => {
+        //     setState({
+        //         eventCount: state.eventCount + 1,
+        //     });
+        // };
 
-        const updateUsername = (event) => {
-            setState({
-                username: event.target.value,
-            });
-        };
+        // const updateUsername = (event) => {
+        //     setState({
+        //         username: event.target.value,
+        //     });
+        // };
 
-        const App = () => (
-            <div>
-                <p>
-                    There have been {state.eventCount} events
-                </p>
-                <p>
-                    <button onClick={increment}>⚛️</button>
-                </p>
-                <p>You typed: {state.username}</p>
-                <p>
-                    <input onChange={updateUsername} />
-                </p>
-            </div>
-        );
+        // const App = () => (
+        //     <div>
+        //         <p>
+        //             There have been {state.eventCount} events
+        //         </p>
+        //         <p>
+        //             <button onClick={increment}>⚛️</button>
+        //         </p>
+        //         <p>You typed: {state.username}</p>
+        //         <p>
+        //             <input onChange={updateUsername} />
+        //         </p>
+        //     </div>
+        // );
 
-        renderApp();
+        // renderApp();
     </script>
 </body>
 

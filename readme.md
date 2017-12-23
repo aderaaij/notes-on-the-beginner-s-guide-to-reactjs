@@ -11,13 +11,13 @@
         - [`createElement`](#createelement)
         - [JSX](#jsx)
             - [Javascript in JSX](#javascript-in-jsx)
+            - [Conditionally rendering JSX](#conditionally-rendering-jsx)
             - [Resources - JSX](#resources---jsx)
         - [Creating a React component](#creating-a-react-component)
             - [Summary](#summary)
             - [Resources - Creating React components](#resources---creating-react-components)
         - [Prop validation](#prop-validation)
             - [Resources - PropTypes](#resources---proptypes)
-        - [Conditionally rendering JSX](#conditionally-rendering-jsx)
     - [Resources](#resources)
         - [Video's](#videos)
         - [Documentation](#documentation)
@@ -169,16 +169,68 @@ var props = {
 var element = React.createElement(
     'div',
     props,
-    'Test' // This is what'll get rendered as it's the last argument that gets passed.
+    'Test' 
+    // The output will be `div` with the content 'test', as this last argument and 
+    // will override `props.children`
 );
 ReactDOM.render(element, root);
 ```
+
+#### Conditionally rendering JSX
+
+By now we've seen that JSX is 'just syntatical sugar' which gets converted to real JavaScript ([paraphrased from reactenligtenment.com](https://www.reactenlightenment.com/react-jsx/5.4.html)) and we've also used some JavaScript variables and objects within JSX by using `{ }`.
+
+But what if we want to conditionally render some JSX based on if there are props or not? We've already used a `function` call to output JSX, so we can easily put some logic into a function:
+
+```javascript
+const rootEl = document.querySelector('#root');
+const message = (msg) => {
+    if (msg) {
+        return <div>{msg}</div>
+    } else {
+        return <div>Nothing to tell</div>
+    }
+}
+const Greeting = ({ msg }) => (
+    <div>{message(msg)}</div>
+)
+ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
+```
+
+This removes your logic outside of your JSX which is a great way of working and keeping your code clear. But at times you might want to use some logic within your JSX too. As you can't use any new curly brackets within JSX except for when you escape them in a string, you can make use of ternary operators and other logical expressions:
+
+```javascript
+const rootEl = document.querySelector('#root');
+const Greeting = ({ msg }) => (
+    <div>{msg
+        ? <div>{msg}</div>
+        : <div>Nothing to tell</div>
+    }</div>
+)
+ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
+```
+
+This does exactly the same as the first example, but instead the logic is contained inline with the JSX of the component by using ternary operators.
+
+When you only need to check if a value is true or false, you could also use an inline `if` statement with the logical `&&` operator:
+
+```javascript
+const rootEl = document.querySelector('#root');
+const Greeting = ({ msg }) => (
+    <div>{msg &&
+        <div>{msg}</div>
+    }</div>
+)
+ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
+```
+
+In this case we don't print anything to the screen if `msg` is empty.
 
 #### Resources - JSX
 
 - [React Enlightment - JSX](https://www.reactenlightenment.com/react-jsx/5.7.html)
 - [React Docs - Dom elements](https://reactjs.org/docs/dom-elements.html)
-- [React Docs, conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
+- [React Docs - conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
 
 ### Creating a React component
 
@@ -325,19 +377,6 @@ Note that when we switch out our development version of `React` and `ReactDOM` t
 - [React Docs - typechecking-with-proptypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 - [Reactenlightenment.com - Validating component Props](https://www.reactenlightenment.com/react-props/7.6.html)
 - [PropTypes NPM package](https://www.npmjs.com/package/prop-types)
-
-### Conditionally rendering JSX
-
-```javascript
-const rootEl = document.querySelector('#root');
-const Greeting = ({ msg }) => (
-    <div>{msg
-        ? <div>{msg}</div>
-        : <div>Nothing to tell</div>
-    }</div>
-)
-ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
-```
 
 ## Resources
 
