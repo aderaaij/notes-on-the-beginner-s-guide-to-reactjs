@@ -18,12 +18,16 @@
     </div>
     <script type="text/babel">
     const rootEl = document.querySelector('#root');
-    const Greeting = ({ msg }) => (
-        <div>{msg &&
-            <div>{msg}</div>
-        }</div>
-    )
-    ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
+    function tick() {
+        const time = new Date().toLocaleTimeString();
+        const element = (<div>
+            <input value={time} />
+            <input value={time} />
+        </div>
+        )
+        ReactDOM.render(element, rootEl);
+    }
+    setInterval(tick, 1000);
 
         // const state = { eventCount: 0, username: '' };
 
