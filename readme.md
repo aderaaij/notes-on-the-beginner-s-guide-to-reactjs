@@ -18,26 +18,22 @@
         - [Conditionally rendering JSX](#conditionally-rendering-jsx)
             - [Resources - PropTypes](#resources---proptypes)
     - [Resources](#resources)
+    - [Video's](#videos)
         - [Documentation](#documentation)
+        - [Articles](#articles)
         - [Tools](#tools)
         - [Some other notes](#some-other-notes)
             - [Components](#components)
 
-
 ## Introduction
 
-The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodd](https://twitter.com/kentcdodds).
+The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available that do get to the core of things, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodd](https://twitter.com/kentcdodds) on egghead.io.
 
-Besides the egghead.io course, I’ve watched [one of Kent’s talks](https://youtu.be/pugPxYH96TU) in which he covers pretty much the same stuff, at times a bit more in-depth.
+Besides the egghead.io course, I’ve watched [one of Kent’s talks](https://youtu.be/pugPxYH96TU) in which he covers much of the same grounds but goes a bit more in-depth at times.
 
-During the course I also found the [React documentation](https://reactjs.org/docs/) to be really helpful, as [React Enlightenment](https://www.reactenlightenment.com/) which is available for free and greatly compliments Kent's course.
+During the course I also found the [React documentation](https://reactjs.org/docs/) to be really helpful, as the [React Enlightenment](https://www.reactenlightenment.com/) book which is available online for free and greatly compliments Kent's course.
 
-Resources:
-
-* [The beginners guide to React](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
-* [The introduction to React you've been missing](https://youtu.be/pugPxYH96TU)
-* [React documentation](https://reactjs.org/docs/)
-* [React Enlightenment](https://www.reactenlightenment.com/) 
+At the bottom of this document you can find a list of resources I've been using throughout this course and underneath every chapter there's a list of resources about the chapter topic.
 
 ## Base
 
@@ -87,8 +83,8 @@ ReactDOM.render(el, rootEl);
 
 We nested `childEl` in `rootEl`, and if we would want to we could nest another element in `childEl`, and so on. We can create an entire DOM tree this way, but that would become annoying quickly. The deeper you nest your elements this way, the harder it is to keep track of what is happening. That's where the JSX Syntax comes in.
 
-* [React API docs](https://reactjs.org/docs/react-api.html)
-* [React API createElement docs](https://reactjs.org/docs/react-api.html#createelement)
+- [React API docs](https://reactjs.org/docs/react-api.html)
+- [React API createElement docs](https://reactjs.org/docs/react-api.html#createelement)
 
 ### JSX
 
@@ -114,7 +110,7 @@ What is noticable in the example above is that we don't use the `class` attribut
 
 To use JavaScript within JSX, you need to make use of curly braces. *Within curly braces you can make use of [JavaScript Expressions](https://developer.mozilla.org/nl/docs/Web/JavaScript/Guide/Expressions_and_Operators) and other JS that returns something that JSX can render. This means making use of `arrow` functions and the logical `&&` operator. Complicated logic is best left out of the JSX itself and moved to an external function. [Read more about conditional rendering in JSX](https://reactjs.org/docs/conditional-rendering.html).
 
-** *Is this actually true? What exactly can you use within those curly braces? Nothing that uses Curly Braces itself, right?*
+❓ *Is this actually true? What exactly can you use within those curly braces? Nothing that uses Curly Braces itself, right?*
 
 You can use curly braces in the content, but also as an attribute value:
 
@@ -177,9 +173,9 @@ ReactDOM.render(element, root);
 
 #### Resource list - JSX
 
-* [React Enlightment - JSX](https://www.reactenlightenment.com/react-jsx/5.7.html)
-* [React Docs - Dom elements](https://reactjs.org/docs/dom-elements.html)
-* [React Docs, conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
+- [React Enlightment - JSX](https://www.reactenlightenment.com/react-jsx/5.7.html)
+- [React Docs - Dom elements](https://reactjs.org/docs/dom-elements.html)
+- [React Docs, conditional rendering](https://reactjs.org/docs/conditional-rendering.html)
 
 ### Creating a React component
 
@@ -261,15 +257,15 @@ The `children` property will pass anything you add between an opening and closin
 
 #### Summary
 
-* To create a reusable component you need to make a function that starts with a capital letter
-* This function takes in an object as argument, which you can use in whatever the function returns
-* You can use the React elements your function returns as you would use a `div`, `span` or anything else you'd use in JSX
-* You can create a component by creating a Javascript function that returns JSX, you can also extend the default React components giving extra options.
+- To create a reusable component you need to make a function that starts with a capital letter
+- This function takes in an object as argument, which you can use in whatever the function returns
+- You can use the React elements your function returns as you would use a `div`, `span` or anything else you'd use in JSX
+- You can create a component by creating a Javascript function that returns JSX, you can also extend the default React components giving extra options.
 
-* [React docs - Components and props](https://reactjs.org/docs/components-and-props.html)
-* [React enlightenment - Basic React Components](https://www.reactenlightenment.com/basic-react-components.html)
+- [React docs - Components and props](https://reactjs.org/docs/components-and-props.html)
+- [React enlightenment - Basic React Components](https://www.reactenlightenment.com/basic-react-components.html)
 
-*Is children always available?*
+❓*Is children always available?*
 
 ### Prop validation
 
@@ -323,8 +319,11 @@ Note that when we switch out our development version of `React` and `ReactDOM` t
 
 ```javascript
 const rootEl = document.querySelector('#root');
-const Greeting = props => (
-	<div>{Hello {props.firstName} {props.lastName}!</div>
+const Greeting = ({ msg }) => (
+    <div>{msg
+        ? <div>{msg}</div>
+        : <div>Nothing to tell</div>
+    }</div>
 )
 ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
 ```
@@ -336,16 +335,27 @@ ReactDOM.render(<Greeting msg="Hi theeeeere"/>, rootEl);
 
 ## Resources
 
+## Video's
+
+- [The introduction to React you've been missing - Workshop by Kent C. Dodd](https://youtu.be/pugPxYH96TU)
+- [The beginners guide to React by Kent C. Dodd](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
+- [React documentation](https://reactjs.org/docs/)
+- [React Enlightenment](https://www.reactenlightenment.com/)
+
 ### Documentation
 
-* [React Enlightenment](https://www.reactenlightenment.com/) - An amazing in-depth resource for enlightening you in React.
-* [React docs](https://reactjs.org/docs/hello-world.html) - Official React documentation
-* [React docs - Top level api](https://reactjs.org/docs/react-api.html) - Explenation of the Top Level API
+- [React Enlightenment](https://www.reactenlightenment.com/) - An amazing in-depth resource for enlightening you in React.
+- [React docs](https://reactjs.org/docs/hello-world.html) - Official React documentation
+- [React docs - Top level api](https://reactjs.org/docs/react-api.html) - Explenation of the Top Level API
+
+### Articles
+
+- [React stateless functional components - nine wins you might have overlooked](https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc)
 
 ### Tools
 
-* [Babel Repl - onine transpiling](https://babeljs.io/repl/)
-* [Unpkg.com](https://unpkg.com/)
+- [Babel Repl - onine transpiling](https://babeljs.io/repl/)
+- [Unpkg.com](https://unpkg.com/)
 
 ### Some other notes
 

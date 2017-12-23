@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +11,56 @@
     <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
 </head>
+
 <body>
     <div id="root">
 
     </div>
     <script type="text/babel">
-    const rootEl = document.querySelector('#root');
-    class Greeting extends React.Component {
-        static propTypes = {
-            firstName: PropTypes.string.isRequired,
-            lastName: PropTypes.string
-        }
-        render() {
-            const { firstName, lastName } = this.props;
-            return(
-                <div>Hello {firstName} {lastName}!</div>
-            )
-        }
-    }
-    ReactDOM.render(<Greeting lastName={false} />, rootEl);
+
+        const state = { eventCount: 0, username: '' };
+
+        const renderApp = () => {
+            ReactDOM.render(
+                <App />,
+                document.getElementById('root'),
+            );
+        };
+
+        const setState = (newState) => {
+            Object.assign(state, newState);
+            renderApp();
+        };
+
+        const increment = () => {
+            setState({
+                eventCount: state.eventCount + 1,
+            });
+        };
+
+        const updateUsername = (event) => {
+            setState({
+                username: event.target.value,
+            });
+        };
+
+        const App = () => (
+            <div>
+                <p>
+                    There have been {state.eventCount} events
+                </p>
+                <p>
+                    <button onClick={increment}>⚛️</button>
+                </p>
+                <p>You typed: {state.username}</p>
+                <p>
+                    <input onChange={updateUsername} />
+                </p>
+            </div>
+        );
+
+        renderApp();
     </script>
 </body>
+
 </html>
