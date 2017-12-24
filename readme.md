@@ -20,6 +20,8 @@
             - [Resources - PropTypes](#resources---proptypes)
         - [Application Rendering](#application-rendering)
         - [Styling React Components (The basics)](#styling-react-components-the-basics)
+        - [Event Handlers](#event-handlers)
+            - [Resources event handling](#resources-event-handling)
     - [Resources](#resources)
         - [Video's](#videos)
         - [Documentation](#documentation)
@@ -32,7 +34,7 @@
 
 ## Introduction
 
-The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available that do get to the core of things, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodd](https://twitter.com/kentcdodds) on egghead.io.
+The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available that do get to the core of things, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodds](https://twitter.com/kentcdodds) on egghead.io.
 
 Besides the egghead.io course, I’ve watched [one of Kent’s talks](https://youtu.be/pugPxYH96TU) in which he covers much of the same grounds but goes a bit more in-depth at times.
 
@@ -561,14 +563,55 @@ const App = () => (
 );
 ```
 
-A concern in this case could be that the composer of these elements needs to know the CSS classnames. It would be better if the author could just define a size like `small`, `medium` or `large`. That's why we could replace className with a property here: 
+A concern in this case could be that the composer of these elements needs to know the CSS classnames. It would be better if the author could just define a size like `small`, `medium` or `large`. That's why we could replace `className` with a `size` property that takes in a string:
+
+```javascript
+const Box = ({style, size, ...rest}) => {
+    const className = size ? `box box--${size}` : 'box';
+    return (
+        <div
+        className={className}
+        style={{padding: 20, ...style}}
+        {...rest}
+        />
+    )
+};
+const App = () => (
+    <div>
+        <Box size="small" style={{backgroundColor: 'green'}}>Small Box</Box>
+        <Box size="medium" style={{backgroundColor: 'tomato'}}>Small Box</Box>
+        <Box size="large" style={{backgroundColor: 'rebeccapurple'}}>Small Box</Box>
+    </div>
+);
+```
+
+In this example we destructure `size` instead of `className`.
+
+- [Use inline CSS in JSX - Reactenlightenment.com](https://www.reactenlightenment.com/react-jsx/5.6.html)
+
+### Event Handlers
+
+Event handling with React elements resembles event handling with DOM elements but with some differences in syntax. There are a whole bunch of [supported events](https://reactjs.org/docs/events.html#supported-events) available. You'd normally add an eventhandler to a JSX element like this:
+
+```javascript
+    <input onChange={function} />
+    <button onClick={function}>Click</button>
+```
+
+Every event you pass is wrapped in a `SyntheticEvent`, a React wrapper around the browsers native event. It works the same as the native events except that the bevaviour is similair across browsers. React also takes care of event delegation for events that bubble, meaning they're collected into a single event handler.
+
+#### Resources event handling
+
+- [Use event handlers with React - The beginners guide to React](https://egghead.io/lessons/egghead-use-event-handlers-with-react)
+- [Supported events - React Docs](https://reactjs.org/docs/events.html#supported-events)
+- [`SyntheticEvent` - React Docs](ttps://reactjs.org/docs/events.html)
 
 ## Resources
 
 ### Video's
 
-- [The introduction to React you've been missing - Workshop by Kent C. Dodd](https://youtu.be/pugPxYH96TU)
-- [The beginners guide to React by Kent C. Dodd](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
+- [The introduction to React you've been missing - Workshop by Kent C. Dodds](https://youtu.be/pugPxYH96TU)
+- [The beginners guide to React by Kent C. Dodds](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
 - [React documentation](https://reactjs.org/docs/)
 - [React Enlightenment](https://www.reactenlightenment.com/)
 
@@ -581,6 +624,8 @@ A concern in this case could be that the composer of these elements needs to kno
 ### Articles
 
 - [React stateless functional components - nine wins you might have overlooked](https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc)
+- [Why Arrow Functions and bind in React’s Render are Problematic](https://medium.freecodecamp.org/why-arrow-functions-and-bind-in-reacts-render-are-problematic-f1c08b060e36)
+- [React Binding Patterns: 5 Approaches for Handling `this`](https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56)
 
 ### Tools
 

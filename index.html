@@ -16,48 +16,58 @@
     <div id="root">
 
     </div>
-    <style>
-    .box {
-        border: 1px solid #333;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px 0;
-    }
-    
-    .box--large {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .box--medium {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .box--small {
-        width: 60px;
-        height: 60px;
-    }
-    </style>
     <script type="text/babel">
-    const rootEl = document.querySelector('#root');
-    const Box = ({style, className, ...rest}) => (
-        <div
-            className={`box ${className}`}
-            style={{padding: 20, ...style}}
-            {...rest}
-        >
-        </div>
-    );
-    const App = () => (
-        <div>
-            <Box className="box--small" style={{backgroundColor: 'green'}}>Small Box</Box>
-            <Box className="box--medium" style={{backgroundColor: 'tomato'}}>Small Box</Box>
-            <Box className="box--large" style={{backgroundColor: 'rebeccapurple'}}>Small Box</Box>
-        </div>
-    );
-    ReactDOM.render(<App />, rootEl)
+
+
+// class Toggle extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {isToggleOn: true};
+
+//     // This binding is necessary to make `this` work in the callback
+//     // this.handleClick = this.handleClick.bind(this);
+//   }
+
+//   handleClick(){
+//     this.setState(prevState => ({
+//       isToggleOn: !prevState.isToggleOn
+//     }));
+//   }
+
+//   render() {
+//     return (
+//       <button onClick={() => this.handleClick()}>
+//         {this.state.isToggleOn ? 'ON' : 'OFF'}
+//       </button>
+//     );
+//   }
+// }
+
+// ReactDOM.render(
+//   <Toggle />,
+//   document.getElementById('root')
+// );
+
+
+    // const rootEl = document.querySelector('#root');
+    // const Box = ({style, size, ...rest}) => {
+    //     const className = size ? `box box--${size}` : 'box';
+    //     return (
+    //         <div
+    //         className={className}
+    //         style={{padding: 20, ...style}}
+    //         {...rest}
+    //         />
+    //     )
+    // };
+    // const App = () => (
+    //     <div>
+    //         <Box size="small" style={{backgroundColor: 'green'}}>Small Box</Box>
+    //         <Box size="medium" style={{backgroundColor: 'tomato'}}>Small Box</Box>
+    //         <Box size="large" style={{backgroundColor: 'rebeccapurple'}}>Small Box</Box>
+    //     </div>
+    // );
+    // ReactDOM.render(<App />, rootEl)
 
         // const state = { eventCount: 0, username: '' };
 
