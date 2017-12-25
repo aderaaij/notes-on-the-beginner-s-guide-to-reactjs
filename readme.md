@@ -13,6 +13,14 @@ At the bottom of this document you can find a list of resources I've been using 
 ## Table of contents
 
 - [React Nodes](/react-nodes.md)
+- [JSX](/jsx.md)
+- Componemts
+    - [Components - Creating a React component](/components-creating-a-react-component.md)
+    - [Components - An introduction to prop validation](/components-introduction-to-prop-validation.md)
+- [Styling React components](/styling-react-components.md)
+- [React events](events-in-react.md)
+- [Rendering - An introduction to React rendering](rendering-introduction-to-react-rendering.md)
+- [Resources - A list of useful articles and tutorials](react-useful-resources-articles-tutorials.md)
 
 ## Some other notes
 
