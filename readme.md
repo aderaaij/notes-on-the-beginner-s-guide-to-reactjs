@@ -14,7 +14,7 @@ At the bottom of this document you can find a list of resources I've been using 
 
 - [React Nodes](/react-nodes.md)
 - [JSX](/jsx.md)
-- Componemts
+- React Components
     - [Components - Creating a React component](/components-creating-a-react-component.md)
     - [Components - An introduction to prop validation](/components-introduction-to-prop-validation.md)
 - [Styling React components](/styling-react-components.md)
