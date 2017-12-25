@@ -10,6 +10,10 @@ During the course I also found the [React documentation](https://reactjs.org/doc
 
 At the bottom of this document you can find a list of resources I've been using throughout this course and underneath every chapter there's a list of resources about the chapter topic.
 
+## Table of contents
+
+- [React Nodes](/react-nodes.md)
+
 ## Some other notes
 
 ### Components
