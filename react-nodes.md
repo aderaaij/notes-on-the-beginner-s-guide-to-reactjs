@@ -4,15 +4,15 @@ The core of React is based on its [Top-level API's](https://reactjs.org/docs/rea
 
 ## `createElement`
 
-When you've worked with React beore you're probably familiair with JSX. JSX looks and behaves much like HTML, but in fact is a syntax over the `React.createElement` API.
+When you've worked with React before you're probably familiar with JSX. JSX looks and behaves much like HTML, but in fact is a syntax over the `React.createElement` API.
 
 `React.createElement` is sort of an equivalent to `document.createElement` in that it creates `nodes`. Instead of `DOM` nodes, it creates `React` nodes. This is what the API looks like:
 
 ```javascript
 React.createElement(
-    type,
-    [props],
-    [...children]
+   type,
+   [props],
+   [...children]
 )
 ```
 
@@ -27,8 +27,8 @@ Using a real-life example and appending it to the `DOM` with `react-dom`, it loo
 ```javascript
 const rootEl = document.querySelector('#root');
 const el = React.createElement('div', {
-    className: 'container',
-    children: 'Hello World'
+   className: 'container',
+   children: 'Hello World'
 });
 ReactDOM.render(el, RootEl);
 ```
@@ -41,7 +41,7 @@ React elements can be children of other React elements:
 const rootEl = document.querySelector('#root');
 const childEl = React.createElement('span', {}, 'hey there');
 const el = React.createElement('div', {
-    className: 'container',
+   className: 'container',
 }, childEl);
 ReactDOM.render(el, rootEl);
 ```
