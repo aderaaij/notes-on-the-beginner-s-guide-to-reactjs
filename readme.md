@@ -26,6 +26,7 @@
         - [Video's](#videos)
         - [Documentation](#documentation)
         - [Articles](#articles)
+        - [Overviews](#overviews)
         - [Tools](#tools)
         - [ES6](#es6)
     - [Some other notes](#some-other-notes)
@@ -603,8 +604,10 @@ Every event you pass is wrapped in a `SyntheticEvent`, a React wrapper around th
 #### Resources event handling
 
 - [Use event handlers with React - The beginners guide to React](https://egghead.io/lessons/egghead-use-event-handlers-with-react)
+- [Defining React Node events - Reactenlightenment.com](https://www.reactenlightenment.com/react-nodes/4.7.html)
+- [Defining events in JSX - Reactenlightenment.com](https://www.reactenlightenment.com/react-jsx/5.8.html)
 - [Supported events - React Docs](https://reactjs.org/docs/events.html#supported-events)
-- [`SyntheticEvent` - React Docs](ttps://reactjs.org/docs/events.html)
+- [`SyntheticEvent` - React Docs](https://reactjs.org/docs/events.html)
 
 ## Resources
 
@@ -626,6 +629,19 @@ Every event you pass is wrapped in a `SyntheticEvent`, a React wrapper around th
 - [React stateless functional components - nine wins you might have overlooked](https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc)
 - [Why Arrow Functions and bind in React’s Render are Problematic](https://medium.freecodecamp.org/why-arrow-functions-and-bind-in-reacts-render-are-problematic-f1c08b060e36)
 - [React Binding Patterns: 5 Approaches for Handling `this`](https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56)
+- [How to use Classes and sleep at night - Dan Abramov](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)
+- [You might not need Redux - Dan Abramov](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)
+- [Sebastian Markbage: Minimal API Surface Area (JSConf 2014)](https://www.youtube.com/watch?v=4anAwXYqLG8&feature=youtu.be&t=21m33s)
+- [React beginner's question Thread by Dan Abramov](https://dev.to/dan_abramov/react-beginner-question-thread--1i5e/)
+- [Binding with Class properties - Dan Abramov commend on dev.to](https://dev.to/dan_abramov/comment/1n2d)
+
+### Overviews
+
+- [React / Redux links](https://github.com/markerikson/react-redux-links)
+- [React component patterns](https://github.com/markerikson/react-redux-links)
+- [React component composition](https://github.com/markerikson/react-redux-links)
+- [React architecture](https://github.com/markerikson/react-redux-links)
+- [React courses overview](https://reactjs.org/community/courses.html)
 
 ### Tools
 
