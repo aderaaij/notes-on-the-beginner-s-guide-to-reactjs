@@ -1,6 +1,6 @@
 # Event Handlers
 
-Event handling with React elements resembles event handling with DOM elements but with some differences in syntax. There are a whole bunch of [supported events](https://reactjs.org/docs/events.html#supported-events) available. You'd normally add an eventhandler to a JSX element like this:
+Event handling with React elements resembles event handling with DOM elements, with some differences in syntax. There are a whole bunch of [supported events](https://reactjs.org/docs/events.html#supported-events) available. You'd normally add an eventhandler to a JSX element like this:
 
 ```javascript
    <input onChange={function} />
