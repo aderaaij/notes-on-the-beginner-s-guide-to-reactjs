@@ -23,7 +23,49 @@ At the bottom of this document you can find a list of resources I've been using 
 1. [Using `state`](react-rendering-introduction.md)
 1. [Resources - A list of useful articles and tutorials](react-useful-resources-articles-tutorials.md)
 
-## Some other notes
+## Material for coming chapters
+
+### About Class components / es6 classes
+
+React uses default ES6 classes for their components with a couple of default methods and api's: Lifecycle hooks, API's, class properties and instance properties. You can use all these methods directly in a React class component and add your own methods as well. When you want to use a method within a method, you can call it with `this`.
+
+In theory you can directly set the sate in a React class component like in the following example:
+
+```javascript
+class SomeComponent extends React.Component {
+    state = {
+        word: 'word',
+    }
+
+    render() {
+        return(
+            <div>{this.state.word}</div>
+        )
+    }
+}
+
+```
+
+In practice you don't want to do this because it could introduce bugs. The best place to initialize your `state` is within the special `constructor()` method. The `constructor()` method is part of ES6 classes and is called on initializing of your component. In the `constructor()` method, you should also call `super()`, which somehow makes sure that `this` is available within the other methods. In any case, a React class component should look like this:
+
+```javascript
+class SomeComponent extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            word: 'word',
+        }
+    }
+
+    render() {
+        return(
+            <div>{this.state.word}</div>
+        )
+    }
+}
+```
+
+Notice that we now set the available `state` api with `this.state`.
 
 ### Components
 
