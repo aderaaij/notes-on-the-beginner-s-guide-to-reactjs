@@ -7,5 +7,3 @@ Each React `class` component offers a `state` you can set. You can use the compo
 In many aspects, state is similair to `props` with the big difference being that the state is a private object which is only controlled by the component. The state is not accessible outside of the component although it could be passed down as a `prop` in a child component. Data that is stored in the state can only be passed down as a prop.
 
 You can set props with the [`setState()`](https://reactjs.org/docs/react-component.html#setstate) api.
-
-

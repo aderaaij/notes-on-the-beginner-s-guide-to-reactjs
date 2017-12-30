@@ -20,6 +20,7 @@ At the bottom of this document you can find a list of resources I've been using 
 1. [Styling React components](/react-components-styling.md)
 1. [React events](react-events.md)
 1. [Rendering - An introduction to React rendering](react-rendering-introduction.md)
+1. [Using `state`](react-rendering-introduction.md)
 1. [Resources - A list of useful articles and tutorials](react-useful-resources-articles-tutorials.md)
 
 ## Some other notes
