@@ -62,7 +62,4 @@ class StopWatch extends React.Component {
     }
 }
 
-const element = (
-    <StopWatch />
-);
-ReactDOM.render(element,root);
+ReactDOM.render(<StopWatch />,root);
