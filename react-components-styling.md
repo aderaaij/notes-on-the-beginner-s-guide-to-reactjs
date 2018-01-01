@@ -161,3 +161,9 @@ In this example we destructure `size` instead of `className`.
 ## Resources
 
 - [Use inline CSS in JSX - Reactenlightenment.com](https://www.reactenlightenment.com/react-jsx/5.6.html)
+
+### CSS in JS libraries
+
+- [Glamor](https://github.com/threepointone/glamor)
+- [Emotion - The next generation of CSS-in-JS](https://emotion.sh/)
+- [Styled components](https://github.com/styled-components/styled-components)
