@@ -5,11 +5,11 @@
 1. [React Nodes](/react-nodes.md)
 1. [JSX](/react-jsx.md)
 1. React Components
-    1. [Components - Creating a React component](/react-components-creating-a-component.md)
-    1. [Components - An introduction to prop validation](/react-components-proptype-validation.md)
-    1. [Components - About class components](/react-components-class-components.md)
-    1. [Components - React component State](/react-components-state.md)
-    1. [Components - Styling](/react-components-styling.md)
+   1. [Components - Creating a React component](/react-components-creating-a-component.md)
+   1. [Components - An introduction to prop validation](/react-components-proptype-validation.md)
+   1. [Components - About class components](/react-components-class-components.md)
+   1. [Components - React component State](/react-components-state.md)
+   1. [Components - Styling](/react-components-styling.md)
 1. [React events](react-events.md)
 1. [Rendering - An introduction to React rendering](react-rendering-introduction.md)
 1. [Resources - A list of useful articles and tutorials](react-useful-resources-articles-tutorials.md)
@@ -26,17 +26,16 @@ During the course I also found the [React documentation](https://reactjs.org/doc
 
 I haven't been adding notes for each chapter, that is something I might do later. For now I've grouped some subjects together in single documents. I've also tried to deepen some material by referring to the official react docs and [Reactenlightenment.com](http://reactenlightenment.com).
 
-
 ### Notes on Components
 
 - Creating a stateless component: Create a function that returns a JSX element, and optionally takes in `props`.
 - `var MyComponent = React.createClass` and `class MyComponent extends React.Component` are sort of the same. The first one was a proprietary 'class-like' structure made by the React team while in the second example the React team switched using ES6 classes you're extending. If you want to explore the differences between the two:
-    - [`createClass` vs `extends React.Component` - Todd Moto](https://toddmotto.com/react-create-class-versus-component/)
-    - [Stackoverflow - React.createClass vs extends Component](https://stackoverflow.com/questions/33526493/react-createclass-vs-extends-component)
+   - [`createClass` vs `extends React.Component` - Todd Moto](https://toddmotto.com/react-create-class-versus-component/)
+   - [Stackoverflow - React.createClass vs extends Component](https://stackoverflow.com/questions/33526493/react-createclass-vs-extends-component)
 
 ### Key takeaways
 
-- JSX is a readable syntax on top of the  `React.createElement` API. The more you realise that this is the case, the better you will understand what is happening.
+- JSX is a readable syntax on top of the `React.createElement` API. The more you realise that this is the case, the better you will understand what is happening when you create components and render HTML elements.
 - The `...` spread operator is really f-in useful. The content of a JSX element is in the `children` prop so you can always define a few default values in your component and spread other values, including `children`, into them.
 - Equally useful is ES6 destructuring. Destructuring props in a function call or element render is great and once you know what is going on it makes your code a lot more readable.
 - In short, some ES6 knowledge is really useful when working with React.
@@ -59,56 +58,56 @@ Working with React class components (and ES6 classes in general) means making a 
 
 ```javascript
 class ClickButton extends React.Component {
-    clickHandler() {
-        alert('You\'ve clicked 🎉')
-    }
+   clickHandler() {
+       alert('You\'ve clicked 🎉')
+   }
 
-    render() {
-        return(
-            <button onClick={this.clickHandler}>Click</button>
-        )
-    }
+   render() {
+       return(
+           <button onClick={this.clickHandler}>Click</button>
+       )
+   }
 }
 ```
 
-The example above will work with no problem. We define a function in the upper scope and refer to it within ther `render` function by adding `this.` to the function call.
+The example above will work with no problem. We define a function in the upper scope and refer to it within the `render` function by adding `this.` to the function call.
 
 But what if you want to update / set the state in the function you call in your eventhandler?
 
 ```javascript
 class ClickButton extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            counter: 0,
-        };
-    }
+   constructor() {
+       super();
+       this.state = {
+           counter: 0,
+       };
+   }
 
-    clickHandler() {
-        this.setState(({ counter }) => ({
-            counter: counter + 1,
-        }));
-    }
+   clickHandler() {
+       this.setState(({ counter }) => ({
+           counter: counter + 1,
+       }));
+   }
 
-    render() {
-        return(
-            <button onClick={this.clickHandler}>{this.state.counter}</button>
-        )
-    }
+   render() {
+       return(
+           <button onClick={this.clickHandler}>{this.state.counter}</button>
+       )
+   }
 }
 ```
 
-In the example above we first call the `constructor` method. This is where we set the state. Note how we call `state` with `this.` infront of it. You could also define state on the same level as the `constructor`, withouth the `this`.
+In the example above we first call the `constructor` method. This is where we set the state. Note how we call `state` with `this.` in front of it. You could also define state on the same level as the `constructor`, without the `this`.
 
 In our clickhandler, we now update the state with `setState` and add an extra count to the counter every time we click the button. It looks like it should work, but it doesn't though. The error message reads something like `Cannot read property 'setState' of undefined`.
 
-As it turns out, `setState` is undefined because `this` doesn't refer to the upprscope anymore. We call the function within another function which means the `this` used with `setState` points to the wrong place. To fix this we can do a couple of things. One of the easiest ways to solve this is changing the `clickHandler` function into an arrow function:
+As it turns out, `setState` is undefined because `this` doesn't refer to the upper scope anymore. We call the function within another function which means the `this` used with `setState` points to the wrong place. To fix this we can do a couple of things. One of the easiest ways to solve this is changing the `clickHandler` function into an arrow function:
 
 ```javascript
 clickHandler = () => {
-    this.setState(({ counter }) => ({
-        counter: counter + 1,
-    }));
+   this.setState(({ counter }) => ({
+       counter: counter + 1,
+   }));
 }
 ```
 
@@ -126,21 +125,21 @@ There might be some cases when you need to interact with an actual DOM node, whe
 
 ```javascript
 class Test extends React.Component {
-    componentDidMount() {
-        console.log(this.myElement);
-    }
-    render() {
+   componentDidMount() {
+       console.log(this.myElement);
+   }
+   render() {
 
-        return(
-            <div ref={myElement => (this.myElement = myElement)}>
-                <h1>Hi</h1>
-            </div>
-        )
-    }
+       return(
+           <div ref={myElement => (this.myElement = myElement)}>
+               <h1>Hi</h1>
+           </div>
+       )
+   }
 }
 ```
 
-In this example we use an arrow function to take the element in `myElement` and declare `this.myElement` and assing it to `myElement`. `this.myElement` could also be called `this.randomstring`, it doesn't need the same name as the element itself. All we're doing is declaring a new variable that is available within the class. Now we've got `this.myElement` available as soon as the component is mounted and it could be used to load an external library for example.
+In this example we use an arrow function to take the element in `myElement` and declare `this.myElement` and assign it to `myElement`. `this.myElement` could also be called `this.randomstring`, it doesn't need the same name as the element itself. All we're doing is declaring a new variable that is available within the class. Now we've got `this.myElement` available as soon as the component is mounted and it could be used to load an external library for example.
 
 #### Ref resources
 
@@ -153,24 +152,24 @@ When making forms in React there are a few things to keep an eye on. For one we 
 
 ```javascript
 class NameForm extends React.Component {
-    handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(event.target[0].value);
-        console.log(event.target.elements.username.value);
-        console.log(this.userName.value)
-    }
+   handleSubmit = (event) => {
+       event.preventDefault();
+       console.log(event.target[0].value);
+       console.log(event.target.elements.username.value);
+       console.log(this.userName.value)
+   }
 
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    name:
-                    <input name="username" ref={inputNode => (this.userName = inputNode)} type="text" />
-                </label>
-                <button type='Submit'>Submit</button>
-            </form>
-        )
-    }
+   render() {
+       return (
+           <form onSubmit={this.handleSubmit}>
+               <label>
+                   name:
+                   <input name="username" ref={inputNode => (this.userName = inputNode)} type="text" />
+               </label>
+               <button type='Submit'>Submit</button>
+           </form>
+       )
+   }
 }
 
 ```
@@ -187,72 +186,72 @@ The third `console.log` uses the `ref` attribute. Where the previous two example
 
 ### [15. Make dynamic forms with React](https://egghead.io/lessons/egghead-make-dynamic-forms-with-react)
 
-When we make forms in react we can do dynamic error / input checking with the `onChange` event. In the example below you'll see a simple way to show an error message when whatever the user is typing doesn't pass the checks we've set-up. 
+When we make forms in react we can do dynamic error / input checking with the `onChange` event. In the example below you'll see a simple way to show an error message when whatever the user is typing doesn't pass the checks we've set-up.
 
 ```javascript
 class NameForm extends React.Component {
 
-    // Set the errorMessage value as an empty string
-    state = { error: this.props.getErrorMessage('') }
+   // Set the errorMessage value as an empty string
+   state = { error: this.props.getErrorMessage('') }
 
-    // Prevent default and show an alert on success
-    handleSubmit = event => {
-        event.preventDefault();
-        const value = event.target.elements.username.value;
-        alert(`success: ${value}`)
-    }
+   // Prevent default and show an alert on success
+   handleSubmit = event => {
+       event.preventDefault();
+       const value = event.target.elements.username.value;
+       alert(`success: ${value}`)
+   }
 
-    // The magic
-    // On each letter we add or remove we set the state
-    // and use the error message function with the updated value.
-    handleChange = event => {
-        const {value} = event.target
-        this.setState({
-            error: this.props.getErrorMessage(value),
-        })
-    }
+   // The magic
+   // On each letter we add or remove we set the state
+   // and use the error message function with the updated value.
+   handleChange = event => {
+       const {value} = event.target
+       this.setState({
+           error: this.props.getErrorMessage(value),
+       })
+   }
 
-    render() {
-        const { error } = this.state
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Name:
-                    <input
-                    type="text"
-                    onChange={this.handleChange}
-                    name="username"
-                    />
-                </label>
-                {/* When there's an error, we hsow this error in red */}
-                {error ? (
-                <div style={{color: 'red'}}>
-                {error}
-                </div>
-                ) : null}
-                <button
-                    disabled={Boolean(error)}
-                    type="submit"
-                >
-                    Submit
-                </button>
-            </form>
-        )
-    }
+   render() {
+       const { error } = this.state
+       return (
+           <form onSubmit={this.handleSubmit}>
+               <label>
+                   Name:
+                   <input
+                   type="text"
+                   onChange={this.handleChange}
+                   name="username"
+                   />
+               </label>
+               {/* When there's an error, we show this error in red */}
+               {error ? (
+               <div style={{color: 'red'}}>
+               {error}
+               </div>
+               ) : null}
+               <button
+                   disabled={Boolean(error)}
+                   type="submit"
+               >
+                   Submit
+               </button>
+           </form>
+       )
+   }
 }
 
 ReactDOM.render(
-    <NameForm
-        getErrorMessage={value => {
-            if (value.length < 3) {
-                return `Value must be at least 3 characters, but is only ${value.length}`
-            }
-            if (!value.includes('s')) {
-                return `Value does not include "s" but it should!`
-            }
-            return null
-        }}
-    />,
-    document.getElementById('root'),
+   <NameForm
+       getErrorMessage={value => {
+           if (value.length < 3) {
+               return `Value must be at least 3 characters, but is only ${value.length}`
+           }
+           if (!value.includes('s')) {
+               return `Value does not include "s" but it should!`
+           }
+           return null
+       }}
+   />,
+   document.getElementById('root'),
 );
 ```
