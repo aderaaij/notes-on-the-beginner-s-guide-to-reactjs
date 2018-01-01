@@ -1,4 +1,4 @@
-# My notes on 'The Beginners guide to React' by Kent C. Dodds on egghead.io
+# My notes on 'The Beginners guide to React' course by Kent C. Dodds
 
 ## Table of contents
 
