@@ -40,3 +40,10 @@ setInterval(tick, 1000);
 ```
 
 The `focus` remains on the selected element because React keeps track of it. React also keeps track of the actual changes within our app so even though we call `ReactDOM.render` every second, it will not refresh every `element` inside, just the `time` value.
+
+## Resources
+
+- [Rendering elements - React docs](https://reactjs.org/docs/rendering-elements.html)
+- [Rendering to DOM - reactenlightenment.com](https://www.reactenlightenment.com/react-nodes/4.3.html)
+- [Rendering JSX to DOM - reactenlightenment.com](https://www.reactenlightenment.com/react-jsx/5.3.html)
+- [Re-rendering a component - reactenlightenment.com](https://www.reactenlightenment.com/basic-react-components/6.10.html)
