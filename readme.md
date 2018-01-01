@@ -1,12 +1,12 @@
-# My notes on - 'Beginners guide to React'
+# My notes on 'The Beginners guide to React' by Kent C. Dodds on egghead.io
 
-The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available that do get to the core of things, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodds](https://twitter.com/kentcdodds) on egghead.io.
+## Introduction
+
+The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React but not what the inner workings of the library are. Luckily there are some great resources available that get to the core of things, one of which is the freely available [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodds](https://twitter.com/kentcdodds) on egghead.io.
 
 Besides the egghead.io course, I’ve watched [one of Kent’s talks](https://youtu.be/pugPxYH96TU) in which he covers much of the same grounds but goes a bit more in-depth at times.
 
-During the course I also found the [React documentation](https://reactjs.org/docs/) to be really helpful, as the [React Enlightenment](https://www.reactenlightenment.com/) book which is available online for free and greatly compliments Kent's course.
-
-At the bottom of this document you can find a list of resources I've been using throughout this course and underneath every chapter there's a list of resources about the chapter topic.
+During the course I also found the [React documentation](https://reactjs.org/docs/) to be really helpful, as the [React Enlightenment](https://www.reactenlightenment.com/) book which is available online for free and greatly compliments Kent's course. I've created [a document in which I gathered the resources I've used throughout the course](react-useful-resources-articles-tutorials.md).
 
 ## Table of contents
 
@@ -67,11 +67,10 @@ Notice that we now set the available `state` api with `this.state`.
 
 ### Components
 
-Creating a stateless component: Create a function that returns a JSX element, and optionally takes in `props`.
-`var MyComponent = React.createClass` and `class MyComponent extends React.Component` are sort of the same. The first one was a proprietary 'class-like' structure made by the React team while in the second example the React team switched using ES6 classes you're extending. If you want to explore the differences between the two:
-
-- [`createClass` vs `extends React.Component` - Todd Moto](https://toddmotto.com/react-create-class-versus-component/)
-- [Stackoverflow - React.createClass vs extends Component](https://stackoverflow.com/questions/33526493/react-createclass-vs-extends-component)
+- Creating a stateless component: Create a function that returns a JSX element, and optionally takes in `props`.
+- `var MyComponent = React.createClass` and `class MyComponent extends React.Component` are sort of the same. The first one was a proprietary 'class-like' structure made by the React team while in the second example the React team switched using ES6 classes you're extending. If you want to explore the differences between the two:
+    - [`createClass` vs `extends React.Component` - Todd Moto](https://toddmotto.com/react-create-class-versus-component/)
+    - [Stackoverflow - React.createClass vs extends Component](https://stackoverflow.com/questions/33526493/react-createclass-vs-extends-component)
 
 ### Key takeaways
 
@@ -85,8 +84,8 @@ Creating a stateless component: Create a function that returns a JSX element, an
 
 ### Questions
 
-* Do we always need a constructor in a React Class component?
-* What does `super()` really do? 
+- Do we always need a constructor in a React Class component?
+- What does `super()` really do?
 
 ## Lessons
 
@@ -295,4 +294,3 @@ ReactDOM.render(
     document.getElementById('root'),
 );
 ```
-
