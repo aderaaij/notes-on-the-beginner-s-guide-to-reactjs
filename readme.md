@@ -183,3 +183,37 @@ In this example we use an arrow function to take the element in `myElement` and 
 
 - [Refs and the DOM - React Docs](https://reactjs.org/docs/refs-and-the-dom.html)
 - [Using the ref attribute - reactenlightenment.com](https://www.reactenlightenment.com/basic-react-components/6.9.html)
+
+### [14. Making basic forms with React](https://egghead.io/lessons/egghead-make-basic-forms-with-react)
+
+When making forms in React there are a few things to keep an eye on. For one we want to prevent the default behaviour of a form so that the page doesn't fully refresh on submit.
+
+```javascript
+class NameForm extends React.Component {
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(event.target[0].value);
+        console.log(event.target.elements.username.value);
+        console.log(this.userName.value)
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    name: 
+                    <input name="username" ref={inputNode => (this.userName = inputNode)} type="text" />
+                </label>
+                <button type='Submit'>Submit</button>
+            </form>
+        )
+    }
+}
+
+```
+
+In the above example we use `handleSubmit` as our `onSubmit` eventhandler. We also include three different manners to get the value out of the input.
+
+In the first we use the `event.target` property and get the first element in the array. In the second we use the `name` attribute to get the specific target element. This is especially useful with big forms.
+
+The third `console.log` uses the `ref` attribute. Where the previous two examples were pretty much examples that work with plain HTML and JS, this is the React-only solution. It's a very direct way of referencing to your elements.

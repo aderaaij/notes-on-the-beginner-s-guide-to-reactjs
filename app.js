@@ -99,18 +99,40 @@ const rootEl = document.querySelector('#root');
 //     }
 // }
 
-class Test extends React.Component {
-    componentDidMount() {
-        console.log(this.random);
-    }
-    render() {
+// class Test extends React.Component {
+//     componentDidMount() {
+//         console.log(this.random);
+//     }
+//     render() {
 
-        return(
-            <div ref={myElement => (this.random = myElement)}>
-                <h1>Hi</h1>
-            </div>
+//         return(
+//             <div ref={myElement => (this.random = myElement)}>
+//                 <h1>Hi</h1>
+//             </div>
+//         )
+//     }
+// }
+
+class NameForm extends React.Component {
+    
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(event.target[0].value);
+        console.log(event.target.elements.username.value);
+        console.log(this.userName.value)
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    name: 
+                    <input name="username" ref={inputNode => (this.userName = inputNode)} type="text" />
+                </label>
+                <button type='Submit'>Submit</button>
+            </form>
         )
     }
 }
 
-ReactDOM.render(<Test />, rootEl);
+ReactDOM.render(<NameForm />, rootEl);
