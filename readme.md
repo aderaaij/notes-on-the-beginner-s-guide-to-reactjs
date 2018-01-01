@@ -11,9 +11,10 @@
    1. [Components - React component State](/react-components-state.md)
    1. [Components - Styling](/react-components-styling.md)
 1. [React events](react-events.md)
-1. [React Rendering - An introduction to React rendering](react-rendering-introduction.md)
-1. [React Function binding](react-function-binding.md)
-1. [React Resources - A list of useful articles and tutorials](react-useful-resources-articles-tutorials.md)
+1. [React rendering - An introduction to React rendering](react-rendering-introduction.md)
+1. [React function binding](react-function-binding.md)
+1. [React ref - Manipulating the dom](react-ref.md)
+1. [React resources - A list of useful articles, tutorials and other resources](react-useful-resources-articles-tutorials.md)
 
 ## Introduction
 
@@ -48,33 +49,6 @@ I haven't been adding notes for each chapter, that is something I might do later
 
 - Do we always need a constructor in a React Class component?
 - What does `super()` really do?
-
-### [13. Manipulate the DOM with React refs](https://egghead.io/lessons/egghead-manipulate-the-dom-with-react-refs)
-
-There might be some cases when you need to interact with an actual DOM node, whether it is an instance of a React Component or a DOM element. You can get a reference to a DOM node with `ref` and an arrow function:
-
-```javascript
-class Test extends React.Component {
-   componentDidMount() {
-       console.log(this.myElement);
-   }
-   render() {
-
-       return(
-           <div ref={myElement => (this.myElement = myElement)}>
-               <h1>Hi</h1>
-           </div>
-       )
-   }
-}
-```
-
-In this example we use an arrow function to take the element in `myElement` and declare `this.myElement` and assign it to `myElement`. `this.myElement` could also be called `this.randomstring`, it doesn't need the same name as the element itself. All we're doing is declaring a new variable that is available within the class. Now we've got `this.myElement` available as soon as the component is mounted and it could be used to load an external library for example.
-
-#### Ref resources
-
-- [Refs and the DOM - React Docs](https://reactjs.org/docs/refs-and-the-dom.html)
-- [Using the ref attribute - reactenlightenment.com](https://www.reactenlightenment.com/basic-react-components/6.9.html)
 
 ### [14. Make basic forms with React](https://egghead.io/lessons/egghead-make-basic-forms-with-react)
 
