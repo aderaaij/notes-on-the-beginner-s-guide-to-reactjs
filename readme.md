@@ -46,7 +46,8 @@ I haven't been adding notes for each chapter, that is something I might do later
 - A stateless / functional component is exactly what the name implies. Don't worry too much about which one you're using, switching them out is not that hard and the performance gain of using stateless components isn't always that high. Linters be damned.
 - When you're thinking about sending data in the form of `props` or `state` from a child component to a parent component, ask yourself if it's really necessary. Most of the time you already have data available in the parent component (*needs example*)
 
-### Questions
+### Some Questions
 
 - Do we always need a constructor in a React Class component?
 - What does `super()` really do?
+- What is the proper terminology with ES6 classes? Dive into those!
