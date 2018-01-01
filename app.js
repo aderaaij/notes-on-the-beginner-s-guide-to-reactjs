@@ -113,26 +113,92 @@ const rootEl = document.querySelector('#root');
 //     }
 // }
 
-class NameForm extends React.Component {
+// class NameForm extends React.Component {
     
-    handleSubmit = (event) => {
+//     handleSubmit = (event) => {
+//         event.preventDefault();
+//         console.log(event.target[0].value);
+//         console.log(event.target.elements.username.value);
+//         console.log(this.userName.value)
+//     }
+
+//     render() {
+//         return (
+//             <form onSubmit={this.handleSubmit}>
+//                 <label>
+//                     name: 
+//                     <input name="username" ref={inputNode => (this.userName = inputNode)} type="text" />
+//                 </label>
+//                 <button type='Submit'>Submit</button>
+//             </form>
+//         )
+//     }
+// }
+
+// ReactDOM.render(<NameForm />, rootEl);
+
+class NameForm extends React.Component {
+
+    // Set the errorMessage value as an empty string
+    state = { error: this.props.getErrorMessage('') }
+
+    // Prevent default and show an alert on success
+    handleSubmit = event => {
         event.preventDefault();
-        console.log(event.target[0].value);
-        console.log(event.target.elements.username.value);
-        console.log(this.userName.value)
+        const value = event.target.elements.username.value;
+        alert(`success: ${value}`)
+    }
+
+    // The magic
+    // On each letter we add or remove we set the state
+    // and use the error message function with the updated value.
+    handleChange = event => {
+        const {value} = event.target
+        this.setState({
+            error: this.props.getErrorMessage(value),
+        })
     }
 
     render() {
+        const { error } = this.state
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    name: 
-                    <input name="username" ref={inputNode => (this.userName = inputNode)} type="text" />
+                    Name:
+                    <input
+                    type="text"
+                    onChange={this.handleChange}
+                    name="username"
+                    />
                 </label>
-                <button type='Submit'>Submit</button>
+                {/* When there's an error, we hsow this error in red */}
+                {error ? (
+                <div style={{color: 'red'}}>
+                {error}
+                </div>
+                ) : null}
+                <button
+                    disabled={Boolean(error)}
+                    type="submit"
+                >
+                    Submit
+                </button>
             </form>
         )
     }
 }
 
-ReactDOM.render(<NameForm />, rootEl);
+ReactDOM.render(
+    <NameForm
+        getErrorMessage={value => {
+            if (value.length < 3) {
+                return `Value must be at least 3 characters, but is only ${value.length}`
+            }
+            if (!value.includes('s')) {
+                return `Value does not include "s" but it should!`
+            }
+            return null
+        }}
+    />,
+    document.getElementById('root'),
+);

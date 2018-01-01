@@ -1,7 +1,5 @@
 # My notes on - 'Beginners guide to React'
 
-⚠️ *Currently I'm still following the course, and with taking notes and all it's not going too fast! Keep an eye open for updates*
-
 The more I use React, the more I want to find out what is actually happening under the hood. There is no shortage of React tutorials but most of them show you how to make something with React, but not how React does these things. Luckily there are some great resources available that do get to the core of things, one of which is the [‘Beginners guide to React’](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course from [Kent C. Dodds](https://twitter.com/kentcdodds) on egghead.io.
 
 Besides the egghead.io course, I’ve watched [one of Kent’s talks](https://youtu.be/pugPxYH96TU) in which he covers much of the same grounds but goes a bit more in-depth at times.
@@ -85,6 +83,10 @@ Creating a stateless component: Create a function that returns a JSX element, an
 - A stateless / functional component is exactly what the name implies. Don't worry too much about which one you're using, switching them out is not that hard and the performance gain of using stateless components isn't always that high. Linters be damned.
 - When you're thinking about sending data in the form of `props` or `state` from a child component to a parent component, ask yourself if it's really necessary. Most of the time you already have data available in the parent component (*needs example*)
 
+### Questions
+
+* Do we always need a constructor in a React Class component?
+* What does `super()` really do? 
 
 ## Lessons
 
@@ -184,7 +186,7 @@ In this example we use an arrow function to take the element in `myElement` and 
 - [Refs and the DOM - React Docs](https://reactjs.org/docs/refs-and-the-dom.html)
 - [Using the ref attribute - reactenlightenment.com](https://www.reactenlightenment.com/basic-react-components/6.9.html)
 
-### [14. Making basic forms with React](https://egghead.io/lessons/egghead-make-basic-forms-with-react)
+### [14. Make basic forms with React](https://egghead.io/lessons/egghead-make-basic-forms-with-react)
 
 When making forms in React there are a few things to keep an eye on. For one we want to prevent the default behaviour of a form so that the page doesn't fully refresh on submit.
 
@@ -201,7 +203,7 @@ class NameForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    name: 
+                    name:
                     <input name="username" ref={inputNode => (this.userName = inputNode)} type="text" />
                 </label>
                 <button type='Submit'>Submit</button>
@@ -217,3 +219,80 @@ In the above example we use `handleSubmit` as our `onSubmit` eventhandler. We al
 In the first we use the `event.target` property and get the first element in the array. In the second we use the `name` attribute to get the specific target element. This is especially useful with big forms.
 
 The third `console.log` uses the `ref` attribute. Where the previous two examples were pretty much examples that work with plain HTML and JS, this is the React-only solution. It's a very direct way of referencing to your elements.
+
+#### Forms - Resources
+
+- [Forms - React docs](https://reactjs.org/docs/forms.html)
+
+### [15. Make dynamic forms with React](https://egghead.io/lessons/egghead-make-dynamic-forms-with-react)
+
+When we make forms in react we can do dynamic error / input checking with the `onChange` event. In the example below you'll see a simple way to show an error message when whatever the user is typing doesn't pass the checks we've set-up. 
+
+```javascript
+class NameForm extends React.Component {
+
+    // Set the errorMessage value as an empty string
+    state = { error: this.props.getErrorMessage('') }
+
+    // Prevent default and show an alert on success
+    handleSubmit = event => {
+        event.preventDefault();
+        const value = event.target.elements.username.value;
+        alert(`success: ${value}`)
+    }
+
+    // The magic
+    // On each letter we add or remove we set the state
+    // and use the error message function with the updated value.
+    handleChange = event => {
+        const {value} = event.target
+        this.setState({
+            error: this.props.getErrorMessage(value),
+        })
+    }
+
+    render() {
+        const { error } = this.state
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Name:
+                    <input
+                    type="text"
+                    onChange={this.handleChange}
+                    name="username"
+                    />
+                </label>
+                {/* When there's an error, we hsow this error in red */}
+                {error ? (
+                <div style={{color: 'red'}}>
+                {error}
+                </div>
+                ) : null}
+                <button
+                    disabled={Boolean(error)}
+                    type="submit"
+                >
+                    Submit
+                </button>
+            </form>
+        )
+    }
+}
+
+ReactDOM.render(
+    <NameForm
+        getErrorMessage={value => {
+            if (value.length < 3) {
+                return `Value must be at least 3 characters, but is only ${value.length}`
+            }
+            if (!value.includes('s')) {
+                return `Value does not include "s" but it should!`
+            }
+            return null
+        }}
+    />,
+    document.getElementById('root'),
+);
+```
+
