@@ -19,21 +19,19 @@
 - [How to use Classes and sleep at night - Dan Abramov](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)
 - [You might not need Redux - Dan Abramov](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4)
 - [Sebastian Markbage: Minimal API Surface Area (JSConf 2014)](https://www.youtube.com/watch?v=4anAwXYqLG8&feature=youtu.be&t=21m33s)
-- [React beginner's question Thread by Dan Abramov](https://dev.to/dan_abramov/react-beginner-question-thread--1i5e/)
-- [Binding with Class properties - Dan Abramov commend on dev.to](https://dev.to/dan_abramov/comment/1n2d)
+- [React beginner's question Thread on dev.to by Dan Abramov](https://dev.to/dan_abramov/react-beginner-question-thread--1i5e/)
+- [Binding with Class properties - Dan Abramov comment on dev.to](https://dev.to/dan_abramov/comment/1n2d)
 
 ## Overviews
 
-- [React / Redux links](https://github.com/markerikson/react-redux-links)
-- [React component patterns](https://github.com/markerikson/react-redux-links)
-- [React component composition](https://github.com/markerikson/react-redux-links)
-- [React architecture](https://github.com/markerikson/react-redux-links)
+- [React / Redux links by Mark Erikson](https://github.com/markerikson/react-redux-links)
 - [React courses overview](https://reactjs.org/community/courses.html)
 
 ## Tools
 
 - [Babel Repl - onine transpiling](https://babeljs.io/repl/)
 - [Unpkg.com](https://unpkg.com/)
+- [Codesandbox.io](https://codesandbox.io/)
 
 ## ES6
 

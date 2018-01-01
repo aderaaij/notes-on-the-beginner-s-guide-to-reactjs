@@ -8,7 +8,7 @@
     1. [Components - Creating a React component](/react-components-creating-a-component.md)
     1. [Components - An introduction to prop validation](/react-components-proptype-validation.md)
     1. [Components - About class components](/react-components-class-components.md)
-    1. [Components - React componenet State](/react-components-state.md)
+    1. [Components - React component State](/react-components-state.md)
     1. [Components - Styling](/react-components-styling.md)
 1. [React events](react-events.md)
 1. [Rendering - An introduction to React rendering](react-rendering-introduction.md)
