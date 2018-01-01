@@ -139,7 +139,7 @@ In the example above we first call the `constructor` method. This is where we se
 
 In our clickhandler, we now update the state with `setState` and add an extra count to the counter every time we click the button. It looks like it should work, but it doesn't though. The error message reads something like `Cannot read property 'setState' of undefined`.
 
-As it turns out, `setState` is undefined because `this` doesn't refer to the upprscope anymore. We call the function within another function which means the `this` used with `setState` points to the wrong place. To fix this we can do a couple of things. One of the easiest ways to solve this is changing the `clickHandler` function to an arrow function:
+As it turns out, `setState` is undefined because `this` doesn't refer to the upprscope anymore. We call the function within another function which means the `this` used with `setState` points to the wrong place. To fix this we can do a couple of things. One of the easiest ways to solve this is changing the `clickHandler` function into an arrow function:
 
 ```javascript
 clickHandler = () => {
@@ -156,3 +156,25 @@ This is the ['stage 3 public class field syntax proposal'](https://github.com/tc
 - [Passing functions to components - React Docs](https://reactjs.org/docs/faq-functions.html#how-do-i-bind-a-function-to-a-component-instance)
 
 *is this the right terminology?
+
+### 13. Manipulate the DOM with React refs
+
+There might be some cases when you need to interact with an actual DOM node, whether it is an instance of a React Component or a DOM element. You can get a reference to a DOM node with `ref` and an arrow function:
+
+```javascript
+class Test extends React.Component {
+    componentDidMount() {
+        console.log(this.myElement);
+    }
+    render() {
+
+        return(
+            <div ref={myElement => (this.myElement = myElement)}>
+                <h1>Hi</h1>
+            </div>
+        )
+    }
+}
+```
+
+In this example we use an arrow function to take the element in `myElement` and declare `this.myElement` and assing it to `myElement`. `this.myElement` could also be called `this.randomstring`, it doesn't need the same name as the element itself. All we're doing is declaring a new variable that is available within the class. Now we've got `this.myElement` available as soon as the component is mounted and it could be used to load an external library for example.

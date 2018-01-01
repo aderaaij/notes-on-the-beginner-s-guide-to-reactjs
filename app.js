@@ -78,25 +78,39 @@ const rootEl = document.querySelector('#root');
 //     }
 // }
 
-class ClickButton extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            counter: 0,
-        };
-    }
+// class ClickButton extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             counter: 0,
+//         };
+//     }
 
-    clickHandler() {
-        this.setState(({ counter }) => ({
-            counter: counter + 1,
-        }));
-    }
+//     clickHandler() {
+//         this.setState(({ counter }) => ({
+//             counter: counter + 1,
+//         }));
+//     }
 
+//     render() {
+//         return(
+//             <button onClick={this.clickHandler}>{this.state.counter}</button>
+//         )
+//     }
+// }
+
+class Test extends React.Component {
+    componentDidMount() {
+        console.log(this.random);
+    }
     render() {
+
         return(
-            <button onClick={this.clickHandler}>{this.state.counter}</button>
+            <div ref={myElement => (this.random = myElement)}>
+                <h1>Hi</h1>
+            </div>
         )
     }
 }
 
-ReactDOM.render(<ClickButton />, rootEl);
+ReactDOM.render(<Test />, rootEl);
