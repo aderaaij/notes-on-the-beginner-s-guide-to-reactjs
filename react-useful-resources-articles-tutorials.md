@@ -4,8 +4,6 @@
 
 - [The introduction to React you've been missing - Workshop by Kent C. Dodds](https://youtu.be/pugPxYH96TU)
 - [The beginners guide to React by Kent C. Dodds](https://egghead.io/courses/the-beginner-s-guide-to-reactjs)
-- [React documentation](https://reactjs.org/docs/)
-- [React Enlightenment](https://www.reactenlightenment.com/)
 
 ## Documentation
 
