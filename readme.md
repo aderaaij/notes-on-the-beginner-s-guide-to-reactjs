@@ -17,6 +17,7 @@ At the bottom of this document you can find a list of resources I've been using 
 1. React Components
     1. [Components - Creating a React component](/react-components-creating-a-component.md)
     1. [Components - An introduction to prop validation](/react-components-proptype-validation.md)
+    1. [Components - React componenet State](/react-components-state.md)
 1. [Styling React components](/react-components-styling.md)
 1. [React events](react-events.md)
 1. [Rendering - An introduction to React rendering](react-rendering-introduction.md)
@@ -43,7 +44,6 @@ class SomeComponent extends React.Component {
         )
     }
 }
-
 ```
 
 In practice you don't want to do this because it could introduce bugs. The best place to initialize your `state` is within the special `constructor()` method. The `constructor()` method is part of ES6 classes and is called on initializing of your component. In the `constructor()` method, you should also call `super()`, which somehow makes sure that `this` is available within the other methods. In any case, a React class component should look like this:
