@@ -27,7 +27,7 @@ During the course I also found the [React documentation](https://reactjs.org/doc
 
 ### Structure
 
-I haven't been adding notes for each chapter, that is something I might do later. For now I've grouped some subjects together in single documents. I've also tried to deepen some material by referring to the official react docs and [Reactenlightenment.com](http://reactenlightenment.com).
+I haven't been adding notes for each chapter, that is something I might do later. For now I've grouped some subjects together in single documents. I've also tried to deepen some material by referring to the official React docs and [Reactenlightenment.com](http://reactenlightenment.com).
 
 ### Notes on Components
 
