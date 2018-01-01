@@ -38,3 +38,10 @@ class SomeComponent extends React.Component {
 ```
 
 Notice that we now set the `state` api with `this.state`. We can now call the content of the `state` with `this.state` or set new content with `this.setState`.
+
+## Resources
+
+- [React component - React docs](https://reactjs.org/docs/react-component.html)
+- [Class components - Alligator.io](https://alligator.io/react/class-components/)
+- [ES6 classes - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [A deep dive into es6 classes - sitepoint.com](https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/)
